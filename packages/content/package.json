@@ -1,0 +1,18 @@
+{
+  "name": "@aicon/content",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./public": "./src/public.ts",
+    "./server": "./src/server.ts"
+  },
+  "scripts": {
+    "assets:build": "node scripts/build-assets.mjs",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "devDependencies": {
+    "sharp": "^0.34.0",
+    "typescript": "^5.9.0"
+  }
+}

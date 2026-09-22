@@ -1,0 +1,23 @@
+{
+  "name": "aicon",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "test": "npm run test --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "assets:build": "npm run assets:build --workspace @aicon/content",
+    "dev:server": "npm run dev --workspace @aicon/server",
+    "dev:web": "npm run dev --workspace @aicon/web",
+    "dev:hotseat": "npm run dev --workspace @aicon/hotseat",
+    "build": "npm run build --workspace @aicon/web && node scripts/check-bundle.mjs",
+    "check:bundle": "node scripts/check-bundle.mjs",
+    "start": "npm run start --workspace @aicon/server"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

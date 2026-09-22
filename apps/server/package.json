@@ -1,0 +1,28 @@
+{
+  "name": "@aicon/server",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "tsx src/index.ts",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@aicon/content": "0.0.0",
+    "@aicon/engine": "0.0.0",
+    "@aicon/protocol": "0.0.0",
+    "@fastify/static": "^8.0.0",
+    "fastify": "^5.0.0",
+    "socket.io": "^4.8.0",
+    "tsx": "^4.20.0",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "socket.io-client": "^4.8.0",
+    "typescript": "^5.9.0",
+    "vitest": "^3.2.0"
+  }
+}

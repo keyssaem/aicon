@@ -1,0 +1,10 @@
+node_modules/
+dist/
+coverage/
+.vite/
+*.log
+.DS_Store
+
+# 내부 자료는 저장소에 올리지 않습니다 (교안·교재·회의록)
+*.pptx
+*.hwp

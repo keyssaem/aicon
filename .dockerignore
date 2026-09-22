@@ -1,0 +1,8 @@
+node_modules
+**/node_modules
+**/dist
+.git
+docs
+*.jpg
+게임설명서 이미지.jpg
+220425 아이콘 카드 그림(다즐에듀)
