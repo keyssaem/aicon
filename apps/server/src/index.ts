@@ -1,5 +1,6 @@
 // 화면(정적 파일)과 게임 소켓을 같은 주소에서 제공합니다. CORS·쿠키 문제가 없고 배포도 하나로 끝납니다.
 import { existsSync } from 'node:fs';
+import { networkInterfaces } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import fastifyStatic from '@fastify/static';
@@ -56,4 +57,16 @@ const sweeper = setInterval(() => {
 sweeper.unref();
 
 await app.listen({ port, host });
+
+/** 같은 와이파이의 다른 기기에서 들어올 수 있는 주소 */
+function lanAddresses(): string[] {
+  return Object.values(networkInterfaces())
+    .flatMap((list) => list ?? [])
+    .filter((info) => info.family === 'IPv4' && !info.internal)
+    .map((info) => `http://${info.address}:${port}`);
+}
+
 app.log.info(`아이콘 서버 시작 · http://localhost:${port} (화면 ${hasWeb ? '포함' : '없음'})`);
+for (const address of lanAddresses()) {
+  app.log.info(`같은 와이파이의 다른 기기에서는 → ${address}`);
+}
